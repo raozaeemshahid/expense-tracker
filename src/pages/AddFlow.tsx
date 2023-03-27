@@ -61,8 +61,7 @@ const AddFlow: React.FC<{
         <button
           className="w-full py-[2px] rounded-lg   bg-green-600 hover:bg-green-700"
           onClick={() => {
-            let money: number = 0;
-            if (!amount) money = 0;
+            let money = 0;
             if (flowType == "Income") money = parseInt(amount);
             if (flowType == "Expense") money = -1 * parseInt(amount);
 
