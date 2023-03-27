@@ -16,21 +16,24 @@ const List: React.FC<{ list: { name: string; amount: number }[] }> = ({
             value={searchQuery}
           />
         </div>
-        {list
-          .filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()))
-          .map((flow) => (
-            <div
-              key={`${Math.random()}`}
-              className={`m-1 border-r-4 bg-gray-700 shadow-md shadow-gray-900 ${
-                flow.amount < 0 ? "border-red-700" : "border-green-700"
-              } flex`}
-            >
-              <div className="mx-2 flex w-full justify-between p-1">
-                <h2>{flow.name}</h2>
-                <h2>${Math.abs(flow.amount)}</h2>
+        {list.length > 0 &&
+          list
+            .filter((item) =>
+              item.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            .map((flow) => (
+              <div
+                key={`${Math.random()}`}
+                className={`m-1 border-r-4 bg-gray-700 shadow-md shadow-gray-900 ${
+                  flow.amount < 0 ? "border-red-700" : "border-green-700"
+                } flex`}
+              >
+                <div className="mx-2 flex w-full justify-between p-1">
+                  <h2>{flow.name}</h2>
+                  <h2>${Math.abs(flow.amount)}</h2>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
       </div>
     </>
   );
